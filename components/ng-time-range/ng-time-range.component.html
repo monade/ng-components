@@ -1,0 +1,63 @@
+    <div class="time-range-container">
+    <div class="d-flex justify-content-between dates-container" [ngClass]="{ 'disabled': disabled }">
+        <div class="d-flex flex-column text-center">
+            <ng-simple-date *ngIf="showDates"  class="custom-date-picker"
+                            [(ngModel)]="timeRange.startDate!" nzFormat="dd/MM/yyyy"
+                            (ngModelChange)="onDateStartChange($event)"
+                            [withArrows]="true"
+            >
+            </ng-simple-date>
+
+            <div class="d-flex ms-2 align-items-center">
+                <div class="pe-2 unselectable">Dalle</div>
+                <div class="d-flex flex-column">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(90deg)'" (click)="onStartHourIncrease()">arrow-left</ng-icon>
+                    <input type="tel" pattern="[0-9]*" class="square text-center" [(ngModel)]="startHour">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(-90deg)'" (click)="onStartHourDecrease()">arrow-left</ng-icon>
+                </div>
+
+                <div class="unselectable">:</div>
+
+                <div class="d-flex flex-column pe-2">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(90deg)'" (click)="onStartMinutesIncrease()">arrow-left</ng-icon>
+                    <input type="number" class="square text-center" [(ngModel)]="startMinutes">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(-90deg)'" (click)="onStartMinutesDecrease()">arrow-left</ng-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column">
+            <ng-simple-date *ngIf="showDates"  class="custom-date-picker"
+                            [(ngModel)]="timeRange.endDate!" nzFormat="dd/MM/yyyy"
+                            (ngModelChange)="onDateEndChange($event)"
+                            [withArrows]="true"
+            >
+            </ng-simple-date>
+
+            <div class="d-flex align-items-center ms-2">
+                <div class="unselectable">Alle</div>
+                <div class="d-flex flex-column">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(90deg)'" (click)="onEndHourIncrease()">arrow-left</ng-icon>
+                    <input type="number" class="square text-center" [(ngModel)]="endHour">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(-90deg)'" (click)="onEndHourDecrease()">arrow-left</ng-icon>
+                </div>
+
+                <div class="unselectable">:</div>
+
+                <div class="d-flex flex-column pe-2">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(90deg)'" (click)="onEndMinutesIncrease()">arrow-left</ng-icon>
+                    <input type="number" class="square text-center" [(ngModel)]="endMinutes">
+                    <ng-icon class="arrow-icon" [ngClass]="{ 'clickable': !disabled }" [style]="'transform: rotate(-90deg)'" (click)="onEndMinutesDecrease()">arrow-left</ng-icon>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="d-flex align-items-center" [ngClass]="{ 'disabled': disabled }">
+
+
+
+    </div>
+</div>

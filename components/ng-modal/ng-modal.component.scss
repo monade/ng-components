@@ -1,0 +1,67 @@
+@import 'base';
+
+::ng-deep {
+  .ng-modal {
+    .custom-modal {
+      /* modal container fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* z-index must be higher than .jw-modal-background */
+      z-index: 1000;
+
+      /* enables scrolling for tall modals */
+      overflow: auto;
+
+      .custom-modal-content {
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 20px;
+        background: #fff;
+
+        .modal-header {
+          padding: 0;
+        }
+
+        .modal-footer {
+          border-top: none;
+        }
+
+        &.mobile {
+          width: 100%;
+          height: fit-content;
+        }
+      }
+
+      &.mobile-modal {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+    }
+
+    .modal-background {
+      /* modal background fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* semi-transparent black  */
+      background-color: #000;
+      opacity: 0.75;
+
+      /* z-index must be below .jw-modal and above everything else  */
+      z-index: 999;
+    }
+  }
+
+  body.modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+  }
+}

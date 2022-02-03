@@ -1,0 +1,17 @@
+<div class="ng-modal">
+    <div #backArea class="modal-container custom-modal" (click)="onBackClick($event, backArea)" [ngClass]="{ 'mobile-modal': isMobile }">
+        <div class="custom-modal-content" [ngClass]="{'m-3': isMobile, mobile: isMobile}">
+            <div class="modal-header">
+                <ng-content select="[header]"></ng-content>
+                <ng-icon class="close-icon clickable" (click)="close()">close</ng-icon>
+            </div>
+            <div class="modal-body py-4 px-0">
+                <ng-content select="[body]"></ng-content>
+            </div>
+            <div class="custom-modal-footer">
+                <ng-content select="[footer]"></ng-content>
+            </div>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</div>

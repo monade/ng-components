@@ -1,0 +1,5 @@
+<div class="ng-rating d-flex align-items-center">
+    <input class="form-control" [min]="min" [max]="max" [(ngModel)]="value">
+    <button *ngFor="let val of values" class="dot" [ngClass]="{ 'active': value >= val, 'hovered': hovered >= val }"
+        (click)="value = val" (mouseenter)="hovered = val" (mouseleave)="hovered = 0"></button>
+</div>

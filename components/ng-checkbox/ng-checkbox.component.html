@@ -1,0 +1,18 @@
+<div class="custom-control custom-checkbox w-100 clickable" [ngClass]="{ 'checked': value }">
+    <div class="align-items-center">
+        <input
+            #checkboxComponent
+            type="checkbox"
+            class="custom-control-input clickable"
+            [id]="id"
+            [checked]="value"
+            (change)="$event.preventDefault(); $event.stopPropagation(); onChange(checkboxComponent.checked)"
+            [disabled]="disabled"
+        />
+        <label class="custom-control-label clickable" [for]="id">
+            <ng-content></ng-content>
+            <ng-icon *ngIf="icon" class="custom-icon" size="sm">{{icon}}</ng-icon>
+        </label>
+
+    </div>
+</div>

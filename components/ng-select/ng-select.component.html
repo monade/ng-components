@@ -1,0 +1,99 @@
+<span class="v-select"
+      [ngClass]="{ 'v-select--open': showDropdown, 'v-select--expanded': expanded}"
+      (clickOutside)="closeDropdown()">
+
+    <label *ngIf="labelText.length > 0" class="custom-label">{{ labelText }}</label>
+
+    <div class="d-flex h-100 position-relative input-container flex-column">
+          <input
+              *ngIf="!expanded"
+              type="text"
+              class="form-control my-auto"
+              [ngClass]="{ 'is-invalid': hasError }"
+              readonly
+              [value]="label"
+              (click)="$event.preventDefault(); toggleDropdown()"
+              [disabled]="disabled"
+              (blur)="onTouched()"
+          />
+        <div *ngIf="hasError">
+            <small class="text-danger"
+                   *ngIf="hasRequiredError">
+                Campo obbligatorio
+            </small>
+        </div>
+    </div>
+
+    <div
+        class="v-select__dropdown"
+        [hidden]="!showDropdown"
+        [ngClass]="sizeClass"
+        #dropdown
+    >
+      <input [placeholder]="searchPlaceholder" class="form-control border-bottom-squared" *ngIf="searchable"
+             [(ngModel)]="term"/>
+      <div
+          class="v-select__options d-flex flex-column"
+          [ngClass]="{ 'flex-column-reverse': addableAlign === 'bottom' }"
+      >
+        <div
+            class="v-select__option v-select__option--add"
+            [ngClass]="{ 'v-select__option--adding': adding }"
+            *ngIf="addable"
+            (click)="$event.stopPropagation(); startAdding()"
+        >
+          <ng-template *ngIf="adding.enabled;else other_content">
+            <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="adding.text"
+                #input
+                (keyup.enter)="add"
+                (keyup.esc)="stopAdding"
+                placeholder="Inserisci descrizione..."
+            />
+
+            <button class="btn btn-link text-primary" (click)="$event.stopPropagation(); add()">
+              <ng-content select="[add-confirm]"></ng-content>
+            </button>
+          </ng-template>
+          <ng-template #other_content>
+          </ng-template>
+        </div>
+        <div [ngClass]="scrollable ? 'v-select__options--scrollable' : 'v-select__options'">
+          <div class="v-select__option"
+               [ngClass]="{ 'v-select__option--selected': isSelected(option) }"
+               *ngFor="let option of selectableOptions"
+               (mouseup)="$event.stopPropagation(); select(option);"
+          >
+            <ng-template *ngIf="editing && editing.id === option.id;else other_content">
+              <input
+                  type="text"
+                  class="form-control v-select__option--editing"
+                  [(ngModel)]="editing.text"
+                  #editInput
+                  (keyup.enter)="edit"
+                  (keyup.esc)="stopEditing"
+                  placeholder="Inserisci descrizione..."
+              />
+            </ng-template>
+            <ng-template #other_content>
+              <p>{{ option.text }}</p>
+              <ng-content select="[option-text]"></ng-content>
+              <ng-template *ngIf="option.editable">
+                <button
+                    class="btn btn-link text-primary p-0 float-right"
+                    (click)="$event.stopPropagation(); startEditing(option)"
+                >
+                  <ng-content select="[edit]"></ng-content>
+                </button>
+              </ng-template>
+            </ng-template>
+          </div>
+          <div class="d-flex py-3" *ngIf="!options?.length">
+            <p class="m-auto text-muted">Nessun risultato...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>

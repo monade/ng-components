@@ -1,0 +1,16 @@
+<ng-modal id="confirm-modal" class="confirm-modal">
+    <div header>
+        <h3>{{ title }}</h3>
+    </div>
+
+    <div body>
+        <h6>{{ content }}</h6>
+    </div>
+
+    <div footer>
+        <div class="footer d-flex align-items-center justify-content-between">
+            <button (click)="cancel()" class="btn btn-outline-primary">Annulla</button>
+            <button (click)="confirm()" class="btn btn-primary">Conferma</button>
+        </div>
+    </div>
+</ng-modal>

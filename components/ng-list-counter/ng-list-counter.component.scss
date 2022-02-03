@@ -1,0 +1,46 @@
+@import 'base';
+
+.ng-list-counter {
+  cursor: pointer;
+}
+
+.list {
+  max-height: 100px;
+  overflow: auto;
+  padding: 0.75rem;
+  padding-top: 0.25rem;
+  div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+  }
+}
+
+::ng-deep {
+  .ngxp__container {
+    background: $gray-900;
+    color: $white;
+    padding: 5px !important;
+    z-index: 999;
+    margin-top: 7px !important;
+  }
+  .ngxp__arrow {
+    &:before {
+      background-color: $gray-900 !important;
+    }
+  }
+}
+
+.badge {
+  width: 17px;
+  height: 17px;
+  line-height: 17px;
+  text-align: center;
+  padding: 0;
+}
+
+.badge-primary-dark {
+  background-color: $primary-dark;
+  color: $white;
+}

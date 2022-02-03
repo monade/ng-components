@@ -1,0 +1,5 @@
+<div class="d-flex jusitfy-content-center align-items-center">
+    <ng-icon class="arrow" *ngIf="withArrows" (click)="onPrevClick()">arrow-left</ng-icon>
+    <nz-date-picker [disabled]="disabled" class="custom-date-picker mx-1" [nzAllowClear]="false" nzFormat="dd/MM/yyyy" [(ngModel)]="date" (ngModelChange)="onDateChange($event)"></nz-date-picker>
+    <ng-icon class="arrow" *ngIf="withArrows" (click)="onNextClick()">arrow-right</ng-icon>
+</div>

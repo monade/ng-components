@@ -1,0 +1,29 @@
+@import "base";
+
+.arrow-icon {
+  width: 24px;
+  margin: 0 auto;
+  color: $primary;
+}
+
+.disabled {
+  opacity: 0.6;
+  user-select: none !important;
+}
+
+.unselectable {
+  user-select: none;
+}
+.square {
+  width: 45px;
+  user-select: none;
+  border: 1px solid $gray-300;
+  padding: 7px;
+  margin: 0 3px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

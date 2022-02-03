@@ -1,0 +1,31 @@
+@import "base";
+
+.arrow-left {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+.arrow-right {
+  position: absolute;
+  bottom: 5px;
+  left: 25px;
+}
+
+.sidebar-body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba($black, 45%) rgba($white, 25%);
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($black, 45%);
+    border-radius: 100px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba($white, 25%);
+  }
+  overflow-x: hidden;
+}

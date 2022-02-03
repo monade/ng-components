@@ -1,0 +1,16 @@
+<div nz-popover [nzPopoverTrigger]="sidebarOpen ? null : 'hover'" [nzPopoverMouseEnterDelay]="0" [nzPopoverMouseLeaveDelay]="0" [nzPopoverContent]="labelContentTemplate" [nzPopoverPlacement]="'right'"  class="sidebar-item my-2 ps-2 " (click)="navigateTo(to)" [ngClass]="{ 'clickable': !isTitle, 'disabled': disabled }">
+    <div>
+        <div *ngIf="isTitle" class="d-flex align-items-center">
+            <span *ngIf="sidebarOpen" class="text-icon ms-3">{{label}}</span>
+            <span *ngIf="!sidebarOpen" class="text-icon ms-3">{{' '}}</span>
+        </div>
+        <div *ngIf="!isTitle" class="d-flex align-items-center">
+            <ng-icon class="icon-item text-primary" [size]="isMobile ? 'md' : 'lg'">{{icon}}</ng-icon>
+            <span *ngIf="sidebarOpen" class="text-icon ms-3">{{label}}</span>
+        </div>
+    </div>
+</div>
+
+<ng-template #labelContentTemplate>
+    <span class="font-weight-bold text-primary">{{ label }}</span>
+</ng-template>

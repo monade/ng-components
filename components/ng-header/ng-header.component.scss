@@ -1,0 +1,35 @@
+@import 'base';
+
+::ng-deep {
+  .header-container {
+    position: relative;
+    height: $header-height;
+    background-color: white;
+    border: 1px solid $alto;
+    .department-select {
+      width: 350px;
+      input {
+        border: 0 !important;
+      }
+    }
+
+    .v-select__options--scrollable {
+      max-height: 50vh !important;
+      height: 300px;
+    }
+
+    &.has-overflow {
+      z-index: 1;
+      right: 0;
+      width: calc(100% - 55px);
+    }
+  }
+}
+
+.disable-click {
+  cursor: auto !important;
+}
+
+.container-height {
+  height: $header-height;
+}

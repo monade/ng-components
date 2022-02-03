@@ -1,0 +1,37 @@
+@import 'base';
+
+::ng-deep {
+  .ng-slider {
+    .ngx-slider {
+      margin-top: 10px !important;
+    }
+
+    .ngx-slider-selection {
+      background: $cobalt !important;
+    }
+
+    .ngx-slider-model-value, .ngx-slider-model-high, .ngx-slider-floor, .ngx-slider-ceil, .ngx-slider-combined {
+      display: none !important;
+    }
+
+    .ngx-slider-pointer {
+      background: white !important;
+      border: 1px solid $alto;
+      width: 20px !important;
+      height: 20px !important;
+      top: -8px !important;
+    }
+
+    .ngx-slider-pointer:after {
+      display: none !important;
+    }
+
+    .ngx-slider-active {
+      outline: none !important;
+    }
+  }
+}
+
+.separator {
+  color: $alto !important;
+}

@@ -1,0 +1,8 @@
+<div class="btn-group btn-group-toggle clickable" [ngClass]="btnGroupClass">
+    <label *ngFor="let item of items; let i = index"
+           [ngClass]="{'btn': true, 'btn-active': isSelected(item), 'disabled': item.disabled, 'border-left': i !== 0 && i < (items.length)}" [for]="getItemId(i)"
+           (click)="activate(item); $event.stopPropagation();">
+        <input (click)="$event.preventDefault(); $event.stopPropagation();" [id]="getItemId(i)" type="radio" [value]="false" name="multi-switcher" [checked]="getItemId(i) == selected">
+        {{ item.text }}
+    </label>
+</div>

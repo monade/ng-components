@@ -1,0 +1,19 @@
+:host {
+  height: 48px;
+}
+
+.btn-group {
+  height: 100%;
+}
+
+label {
+  border-radius: 0 !important;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer !important;
+
+  &.disabled {
+    opacity: .2;
+  }
+}

@@ -1,0 +1,17 @@
+@import 'base';
+
+label {
+  user-select: none;
+  width: 100%;
+}
+
+.checked {
+  background-color: $zircon !important;
+}
+
+.custom-icon {
+  position: absolute;
+  right: 0;
+  padding-top: 3px;
+  padding-right: 3px;
+}

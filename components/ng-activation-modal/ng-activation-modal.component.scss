@@ -1,0 +1,22 @@
+@import 'base';
+
+::ng-deep {
+
+  .modal-footer {
+    justify-content: flex-start;
+  }
+}
+
+.error-message {
+  color: red;
+}
+
+.footer {
+  .btn-link {
+    color: $cobalt;
+  }
+
+  .button-icon {
+    color: $cobalt;
+  }
+}

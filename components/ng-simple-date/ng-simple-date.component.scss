@@ -1,0 +1,11 @@
+@import 'base';
+
+.custom-date-picker {
+  height: $input-height-base;
+  width: 100%;
+}
+
+.arrow {
+  cursor: pointer;
+  color: $primary;
+}

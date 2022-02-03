@@ -1,0 +1,26 @@
+@import 'base';
+::ng-deep {
+    .sidebar-item {
+        .icon-item span {
+            position: relative;
+            padding: 4px;
+        }
+        .text-icon {
+          color: $cobalt !important;
+          font-weight: bold;
+        }
+
+
+        &.disabled {
+          opacity: 0.7;
+          cursor: not-allowed !important;
+          .icon-item span {
+            border-color: $muted !important;
+          }
+          .text-icon, svg {
+            color: $muted !important;
+          }
+        }
+
+    }
+}

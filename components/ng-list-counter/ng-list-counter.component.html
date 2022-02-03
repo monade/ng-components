@@ -1,0 +1,17 @@
+<div class="ng-list-counter">
+    <popper-content #listContent>
+        <div class="list text-left">
+            <div *ngFor="let item of list">{{ item }}</div>
+        </div>
+    </popper-content>
+    <div class="badge badge-pill" [class]="'badge-' + color" [popper]="listContent"
+        [popperShowOnStart]="false"
+        [popperTrigger]="tooltipTrigger"
+        [popperHideOnClickOutside]="true"
+        [popperHideOnScroll]="true"
+        [popperPlacement]="tooltipPlacement"
+        [popperAppendTo]="'body'">
+        {{ list.length }}
+    </div>
+</div>
+

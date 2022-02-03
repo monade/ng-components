@@ -1,0 +1,16 @@
+@import 'base';
+
+::ng-deep {
+  .toast-success {
+    background-color: $toast-success;
+  }
+
+  .toast-error {
+    background-color: $toast-error;
+  }
+
+  .toast-warning {
+    background-color: $toast-warning;
+  }
+}
+

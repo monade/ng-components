@@ -1,0 +1,9 @@
+<div class="d-flex flex-column ng-slider">
+    <label class="custom-label"><ng-content></ng-content></label>
+    <ngx-slider [(value)]="min" [(highValue)]="max" [options]="options"></ngx-slider>
+    <div class="d-flex justify-content-between align-items-center">
+        <input type="number" [class.is-invalid]="isMinInvalid" [min]="minAllowed" [max]="maxAllowed" class="form-control my-auto w-100" [(ngModel)]="minInput" (blur)="resetInputs()"/>
+        <span class="separator px-2">-</span>
+        <input type="number" [class.is-invalid]="isMaxInvalid" [min]="minAllowed" [max]="maxAllowed" class="form-control my-auto w-100" [(ngModel)]="maxInput" (blur)="resetInputs()"/>
+    </div>
+</div>

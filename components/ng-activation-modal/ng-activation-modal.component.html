@@ -1,0 +1,23 @@
+<div class="activation-modal-container">
+    <ng-modal [id]="modalId">
+        <div header>
+            <h1>{{ title }}</h1>
+        </div>
+        <div body>
+            <div class="d-flex justify-content-center">
+                <ng-time-range
+                    [timeRange]="timeRangeObj"
+                ></ng-time-range>
+            </div>
+            <div *ngIf="errorMessage.length > 0" class="error-message mt-2">
+                {{ errorMessage }}
+            </div>
+        </div>
+        <div footer>
+            <div class="footer d-flex align-items-center">
+                <ng-icon class="button-icon">reset</ng-icon>
+                <button class="btn btn-link">Seleziona intero turno</button>
+            </div>
+        </div>
+    </ng-modal>
+</div>

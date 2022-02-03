@@ -1,0 +1,172 @@
+@import 'base';
+
+$v-select-min-width: 200px !default;
+$v-select-scrollable-max-heigh: 155px !default;
+
+%v-select-input {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  height: auto;
+  border-radius: 0;
+  caret-color: $primary;
+
+  &::placeholder {
+    padding-left: 6px;
+  }
+
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+.v-select {
+  display: block;
+  position: relative;
+  min-width: $v-select-min-width;
+
+  &__value {
+    width: 0;
+    height: 1px;
+    display: block;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  &--open {
+    &:after {
+      transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      margin-top: 0; // Fix svg render issue
+    }
+  }
+
+  &--expanded {
+    .v-select__dropdown {
+      position: initial;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .input-container {
+    &:after {
+      position: absolute;
+      content: " ";
+      right: 1rem;
+      top: 0;
+      width: 9px;
+      height: 100%;
+      margin-top: 2px; // Fix svg render issue
+      cursor: pointer;
+
+      @include background-image("/assets/icons/chevron-down.svg", contain);
+    }
+
+    .is-invalid {
+      background: none;
+    }
+  }
+
+  input {
+    padding-right: 2rem;
+    cursor: pointer;
+    user-select: none;
+
+    &.form-control:disabled {
+      opacity: 0.5;
+      cursor: not-allowed !important;
+    }
+  }
+
+  input.no-border {
+    border-color: transparent !important;
+  }
+
+  div.compact {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  &__dropdown {
+    position: absolute;
+    z-index: $zindex-dropdown +1000;
+    margin-top: 5px;
+    padding: 0;
+    border-radius: $input-border-radius;
+    border: 1px solid $gray-200;
+    box-shadow: 0px 3px 6px $gray-200;
+    background-color: $white;
+    min-width: $v-select-min-width;
+    width: 100%;
+
+    &.compact {
+      box-shadow: none;
+      border-radius: 5px;
+    }
+  }
+
+  &__options {
+    width: 100%;
+
+    &--scrollable {
+      width: 100%;
+      max-height: $v-select-scrollable-max-heigh;
+      overflow-y: auto;
+    }
+  }
+
+  &__option {
+    cursor: pointer;
+    padding: 10px;
+
+    p {
+      font-family: "Texta", sans-serif;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover {
+      background-color: $zircon !important;
+      &.compact {
+        background-color: $primary-light;
+      }
+    }
+
+    &--add {
+      color: $zircon;
+    }
+
+    &--editing {
+      @extend %v-select-input;
+    }
+
+    &--adding {
+      display: flex;
+
+      input {
+        @extend %v-select-input;
+      }
+    }
+
+    &--selected {
+      background-color: $zircon !important;
+      &.compact {
+        background-color: $zircon !important;
+      }
+    }
+  }
+
+  &__option.compact {
+    border: none;
+  }
+}

@@ -1,0 +1,58 @@
+@use "sass:math";
+@import "base";
+
+$switch-width: 28px;
+$switch-height: 14px;
+
+.v-switch-button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.v-switch-button {
+  display: inline-block;
+  position: relative;
+
+  width: $switch-width;
+  height: $switch-height;
+
+  border-radius: math.div($switch-height, 2);
+  background-color: $gray-300;
+
+  cursor: pointer;
+  @extend %user-select-none;
+
+  &:before {
+    display: block;
+    position: absolute;
+    content: "";
+
+    width: $switch-height;
+    height: $switch-height;
+    background-color: $white;
+    border-radius: math.div($switch-height, 2);
+    border: 1px solid $gray-300;
+    box-shadow: 0px 1px 3px $gray-400;
+
+    left: 0;
+    top: 0;
+
+    transition: all 0.25s;
+  }
+
+  &--selected {
+    background-color: $primary;
+
+    &:before {
+      transform: translateX(100%);
+    }
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    color: $secondary;
+    letter-spacing: 0.22px;
+    margin-left: 10px;
+    @extend %user-select-none;
+  }
+}

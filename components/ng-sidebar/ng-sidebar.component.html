@@ -1,0 +1,47 @@
+<div>
+    <aside>
+        <div *ngIf="!isMobile">
+            <div class="sidebar-container h-100">
+                <div class="sidebar-header clickable d-flex align-items-center text-primary"
+                     [ngClass]="{'sidebar-open': open}" (click)="onIconClick()">
+                    <ng-icon class="ps-3">pt</ng-icon>
+                    <ng-icon *ngIf="open" size="xxxl" class="ps-3">posteitaliane</ng-icon>
+                </div>
+
+                <div class="sidebar-body w-100" [ngClass]="{'sidebar-open': open}">
+                    <ng-sidebar-item (click)="open = false" class="py-2" *ngFor="let item of sidebarItems"
+                                     [to]="item.name" [icon]="item.icon"
+                                     [disabled]="item.disabled"
+                                     [label]="item.label" [isTitle]="item.isTitle"
+                                     [sidebarOpen]="open"></ng-sidebar-item>
+                </div>
+
+                <div class="sidebar-footer w-100" [ngClass]="{'sidebar-open': open}">
+                    <ng-icon *ngIf="!open" class="clickable arrow-right text-primary" (click)="openSidebar()">arrow-right</ng-icon>
+                    <ng-icon *ngIf="open" class="clickable arrow-left text-primary" (click)="closeSidebar()">arrow-left</ng-icon>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="isMobile">
+            <div class="sidebar-container-mobile w-100">
+                <div class="sidebar-header"
+                     [ngClass]="{'sidebar-open': open}">
+                    <ng-icon *ngIf="!open" size="sm" class="menu-icon clickable" (click)="open = true">menu</ng-icon>
+                    <div class="d-flex">
+                        <ng-icon size="xxxl" class="logo-icon">posteitaliane</ng-icon>
+                    </div>
+                    <ng-icon *ngIf="open" size="md" class="close-icon clickable" (click)="open = false">close</ng-icon>
+                </div>
+
+                <div *ngIf="open" class="sidebar-body w-100" [ngClass]="{'sidebar-open': open}">
+                    <ng-sidebar-item (click)="open = false" class="py-2" *ngFor="let item of sidebarItems"
+                                     [to]="item.name" [icon]="item.icon"
+                                     [disabled]="item.disabled"
+                                     [label]="item.label" [isTitle]="item.isTitle"
+                                     [sidebarOpen]="open"></ng-sidebar-item>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>

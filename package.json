@@ -1,0 +1,22 @@
+{
+  "name": "@monade/ng-components",
+  "version": "0.0.1",
+  "description": "A collection of Angular components by @monade",
+  "main": "src/main.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monade/ng-components.git"
+  },
+  "author": "Monade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monade/ng-components/issues"
+  },
+  "homepage": "https://github.com/monade/ng-components#readme"
+}
